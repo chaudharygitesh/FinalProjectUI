@@ -1,0 +1,140 @@
+
+<div><div>
+    <aside class="sidebar">
+      <div class="wrapperLogo">
+        <div class="sidebar-logo">
+          <a routerLink="">Integrity Solution</a>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li
+          routerLink="/user-management/dashboard"
+          class="sidebar-item active mb-4"
+        >
+          <span class="sidebar-link">
+            <img
+              class="icon"
+              src="../../../assets/dashboard_icon.png"
+              alt="dashboard_icon"
+            />
+            <span>Dashboard</span>
+          </span>
+        </li>
+
+        <li
+          class="sidebar-item inactive collapsed has-dropdown mb-2"
+          data-bs-toggle="collapse"
+          data-bs-target="#manageLinks"
+          aria-controls="manageLinks"
+        >
+          <span class="sidebar-link" aria-expanded="false">
+            <img
+              class="icon"
+              src="../../../assets/manageUser_icon.png"
+              alt="manageUser_icon"
+            />
+            <span>Manage Users</span>
+            <img
+              class="arrow"
+              src="../../../assets//dropdown_arrow.png"
+              alt="dropdown_arrow"
+              style="margin-left: 40px"
+            />
+          </span>
+        </li>
+
+        <ul
+          id="manageLinks"
+          class="sidebar-dropdown list-unstyled collapse"
+          data-bs-parent="#sidebar"
+        >
+          <li
+            routerLink="/user-management/add-user"
+            class="sidebar-item active mb-2"
+            style="padding-left: 48px"
+          >
+            <span class="sidebar-link">Add User</span>
+          </li>
+        </ul>
+      </ul>
+    </aside>
+  </div>
+  <div>
+    <header>
+      <div class="container">
+        <div class="text-wrapper">
+          <p >Hi,Lima Taylor 👋</p>
+        </div>
+
+        <div class="profile-wrapper">
+          <div class="img">
+            <img src="../../../assets/user_dp.png" alt="user_dp" />
+          </div>
+
+          <div class="name">
+            <p>Lima Taylor</p>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+    <div class="row wrapper">
+        <div class="col-md-3 p-3 ActiveWrapper">
+            <img src="../../../assets/activeicon.png" alt="">
+            </div>
+        <div class="col-md-3 p-3 InactiveWrapper">
+            <img src="../../../assets/inactiveicon1.png" alt="">
+            </div>
+    </div>
+    <div class="table-wrapper">
+        <h5 style="margin-left: 2%;">User Detail</h5>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Middle Name</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Contact No</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example row -->
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>Michael</td>
+                <td>01/01/1990</td>
+                <td>john.doe@example.com</td>
+                <td>(123) 456-7890</td>
+                <td>New York</td>
+                <td>NY</td>
+                <td>
+                    <div class="input-group-append position-absolute eyewrapper">
+                        <span *ngIf="visibility" (click)="toggleVisibility()" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                            </svg>
+                        </span>
+    
+                        <span *ngIf="!visibility" (click)="toggleVisibility()" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash-fill" viewBox="0 0 16 16">
+                                <path d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7 7 0 0 0 2.79-.588M5.21 3.088A7 7 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474z"/>
+                                <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12z"/>
+                            </svg>  
+                              
+                        </span>
+                    </div>
+                </td>
+              </tr>
+              <!-- Additional rows can be added here -->
+            </tbody>
+          </table>
+    </div>
+</div>

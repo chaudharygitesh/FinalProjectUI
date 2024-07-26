@@ -1,0 +1,118 @@
+/* .bg-img{
+    background: url(../../assets/Background.png) no-repeat;
+    position: relative;
+    height: 100vh;
+}
+.login-img{
+    background: url(../../assets/login.png) no-repeat;
+    position: absolute;
+    height: 80%;
+    width: 85%;
+    top: 21%;
+    scale: 1;
+}
+.container{
+    height: auto;
+} */
+ .Cont5{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-content: center;
+ }
+.Cont{
+    align-content: center;
+    margin-left: 15%;
+}
+.Container {
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+  }
+  
+  .Cont1 {
+    width: 45%;
+    background-image: url("../../../assets/Background.png");
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Cont2 {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Cont1 img {
+    width: 90%;
+  }
+  
+  .Cont2 .Cont4 img {
+      width: 90px;
+      margin-bottom: 25px;  
+    }
+
+  .Cont3 {
+    width: 500px;
+    margin-top: 20px;
+    padding: 35px 32px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .InputWrap {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+  }
+  .Cont2 .heading p {
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 35px;
+  }
+  
+  label {
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  /* input {
+    border: 1px solid rgb(173, 171, 171);
+    border-radius: 7px;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+  
+  input:focus {
+      outline: none; 
+      border: 2px solid #0dc5dd; 
+  } */
+/*   
+ button {
+    width: 100%;
+    margin-top: 40px;
+  } */
+  
+  .text_Validator{
+    color: red;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+  .goBackWrapper{
+    text-align: center;
+    margin-top: 18px;
+  }
+  
+  .goBackWrapper a{
+    text-decoration: none;
+    font-weight: 500;
+  }
