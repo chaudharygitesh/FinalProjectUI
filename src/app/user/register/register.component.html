@@ -1,0 +1,558 @@
+<div>
+  <div>
+    <aside class="sidebar">
+      <div class="wrapperLogo">
+        <div class="sidebar-logo">
+          <a routerLink="">Integrity Solution</a>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li
+          routerLink="/user-management/dashboard"
+          class="sidebar-item active mb-4"
+        >
+          <span class="sidebar-link">
+            <img
+              class="icon"
+              src="../../../assets/dashboard_icon.png"
+              alt="dashboard_icon"
+            />
+            <span (click)="dashboard()">Dashboard</span>
+          </span>
+        </li>
+
+        <li
+          class="sidebar-item inactive collapsed has-dropdown mb-2"
+          data-bs-toggle="collapse"
+          data-bs-target="#manageLinks"
+          aria-controls="manageLinks"
+        >
+          <span class="sidebar-link" aria-expanded="false">
+            <img
+              class="icon"
+              src="../../../assets/manageUser_icon.png"
+              alt="manageUser_icon"
+            />
+            <span>Manage Users</span>
+            <img
+              class="arrow"
+              src="../../../assets//dropdown_arrow.png"
+              alt="dropdown_arrow"
+              style="margin-left: 40px"
+            />
+          </span>
+        </li>
+
+        <ul
+          id="manageLinks"
+          class="sidebar-dropdown list-unstyled collapse"
+          data-bs-parent="#sidebar"
+        >
+          <li
+            routerLink="/user-management/add-user"
+            class="sidebar-item active mb-2"
+            style="padding-left: 48px"
+          >
+            <span class="sidebar-link">Add User</span>
+          </li>
+        </ul>
+      </ul>
+    </aside>
+  </div>
+  <div>
+    <header>
+      <div class="container">
+        <div class="text-wrapper">
+          <p></p>
+        </div>
+
+        <div class="profile-wrapper">
+          <div class="img">
+            <img src="../../../assets/user_dp.png" alt="user_dp" />
+          </div>
+
+          <div class="name">
+            <p>Lima Taylor</p>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+<div>
+  <img
+    style="margin-left: 22%; margin-bottom: 3%"
+    src="../../../assets/AddUsericon.png"
+    alt=""
+  />
+</div>
+<div>
+  <div class="container1 col-9 shadow-box">
+    <h4 style="margin-left: 2%; padding: 1%">User Detail</h4>
+    <br style="background-color: black" />
+    <div class="row shadow-box1">
+      <div class="col-md-4 position-relative">
+        <img class="up-photo" src="../../../assets/uploadphoto.png" alt="abc" />
+      </div>
+      <div class="pt-4 position-absolute">
+        <strong><p style="margin-left: 10%">Upload Image Here</p></strong>
+      </div>
+      <div class="position-absolute pt-5">
+        <img
+          style="margin-left: 10%"
+          src="../../../assets/Frame 12.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="form-group col-md-4 p-3">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            id="firstName"
+            required
+            (keypress)="onlysymbolvalidate($event)"
+          />
+          <div
+            *ngIf="
+              userForm.get('firstName')?.invalid &&
+              userForm.get('firstName')?.touched
+            "
+            class="text-danger"
+          >
+            First Name is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            formControlName="lastName"
+            class="form-control"
+            id="lastName"
+            required
+            (keypress)="onlysymbolvalidate($event)"
+          />
+          <div
+            *ngIf="
+              userForm.get('lastName')?.invalid &&
+              userForm.get('lastName')?.touched
+            "
+            class="text-danger"
+          >
+            Last Name is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="middleName">Middle Name</label>
+          <input
+            type="text"
+            formControlName="middleName"
+            class="form-control"
+            id="middleName"
+            (keypress)="onlysymbolvalidate($event)"
+          />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4 p-3">
+          <label for="gender">Gender</label>
+          <select
+            formControlName="gender"
+            class="form-control"
+            id="gender"
+            required
+          >
+            <option value="">Select</option>
+            <option *ngFor="let gender of genders" [value]="gender">
+              {{ gender }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              userForm.get('gender')?.invalid && userForm.get('gender')?.touched
+            "
+            class="text-danger"
+          >
+            Gender is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input
+            type="date"
+            formControlName="dateOfBirth"
+            class="form-control"
+            id="dateOfBirth"
+            required
+            (keypress)="onlysymbolvalidate($event)"
+            max="{{ getCurrentDate() }}"
+          />
+          <div
+            *ngIf="
+              userForm.get('dateOfBirth')?.invalid &&
+              userForm.get('dateOfBirth')?.touched
+            "
+            class="text-danger"
+          >
+            Date of Birth is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            formControlName="EmailId"
+            class="form-control"
+            id="email"
+            required
+          
+          />
+          <div
+            *ngIf="
+              userForm.get('EmailId')?.invalid && userForm.get('EmailId')?.touched
+            "
+            class="text-danger"
+          >
+            Valid email is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4 p-3">
+          <label for="dateOfJoining">Date of Joining</label>
+          <input
+            type="date"
+            formControlName="dateOfJoining"
+            class="form-control"
+            id="dateOfJoining"
+            required
+            (keypress)="onlysymbolvalidate($event)"
+            max="{{ getCurrentDate() }}"
+          />
+          <div
+            *ngIf="
+              userForm.get('dateOfJoining')?.invalid &&
+              userForm.get('dateOfJoining')?.touched
+            "
+            class="text-danger"
+          >
+            Date of Joining is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            formControlName="phoneNumber"
+            class="form-control"
+            id="phoneNumber"
+            required
+            (keypress)="onlysymbolvalidate($event)"
+          />
+          <div
+            *ngIf="
+              userForm.get('phoneNumber')?.invalid &&
+              userForm.get('phoneNumber')?.touched
+            "
+            class="text-danger"
+          >
+            Valid Phone Number is required (10 digits).
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="alternatePhone">Alternate Phone</label>
+          <input
+            type="text"
+            formControlName="alternatePhone"
+            class="form-control"
+            id="alternatePhone"
+            (keypress)="onlysymbolvalidate($event)"
+          />
+          <div
+            *ngIf="
+              userForm.get('alternatePhone')?.invalid &&
+              userForm.get('alternatePhone')?.touched
+            "
+            class="text-danger"
+          >
+            Valid Alternate Phone Number (if provided).
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-4 p-3">
+          <label for="country">Country</label>
+          <select
+            formControlName="country"
+            class="form-control"
+            id="country"
+            required
+            (keypress)="onlysymbolvalidate($event)"
+          >
+            <option value="">Select</option>
+            <option *ngFor="let country of countries" [value]="country">
+              {{ country }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              userForm.get('country')?.invalid &&
+              userForm.get('country')?.touched
+            "
+            class="text-danger"
+          >
+            Country is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="state">State</label>
+          <select
+            formControlName="state"
+            class="form-control"
+            id="state"
+            required
+          >
+            <option value="">Select</option>
+            <option *ngFor="let state of states" [value]="state">
+              {{ state }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              userForm.get('state')?.invalid && userForm.get('state')?.touched
+            "
+            class="text-danger"
+          >
+            State is required.
+          </div>
+        </div>
+
+        <div class="form-group col-md-4 p-3">
+          <label for="city">City</label>
+          <select
+            formControlName="city"
+            class="form-control"
+            id="city"
+            required
+          >
+            <option value="">Select</option>
+            <option *ngFor="let city of cities" [value]="city">
+              {{ city }}
+            </option>
+          </select>
+          <div
+            *ngIf="
+              userForm.get('city')?.invalid && userForm.get('city')?.touched
+            "
+            class="text-danger"
+          >
+            City is required.
+          </div>
+        </div>
+      </div>
+
+  <div class="row">
+    <div class="form-group col-md-4 p-3">
+      <label for="address">Address</label>
+      <input
+        type="text"
+        formControlName="address"
+        class="form-control"
+        id="address"
+        required
+        (keypress)="onlysymbolvalidate($event)"
+      />
+      <div
+        *ngIf="
+          userForm.get('address')?.invalid &&
+          userForm.get('address')?.touched
+        "
+        class="text-danger"
+      >
+        Address is required.
+      </div>
+    </div>
+
+    <div class="form-group col-md-4 p-3">
+      <label for="zipcode">Zip Code</label>
+      <input
+        type="text"
+        formControlName="zipcode"
+        class="form-control"
+        id="zipcode"
+        required
+        (keypress)="onlysymbolvalidate($event)"
+      />
+      <div
+        *ngIf="
+          userForm.get('zipcode')?.invalid &&
+          userForm.get('zipcode')?.touched
+        "
+        class="text-danger"
+      >
+        Zip Code is required.
+      </div>
+    </div>
+  </div>
+      <div class="form-group col-md-4 p-3">
+        <div class="form-check">
+          <label class="form-check-label" for="hasSecondaryAddress">
+            Secondary Address
+          </label>
+        </div>
+      </div>
+<!-- ---------------------Correspondance Address----------------------------------   -->
+<div class="row">
+  <div class="form-group col-md-4 p-3">
+    <label for="country1">Country</label>
+    <select
+      formControlName="country1"
+      class="form-control"
+      id="country1"
+      required
+      (keypress)="onlysymbolvalidate($event)"
+    >
+      <option value="">Select</option>
+      <option *ngFor="let country of countries" [value]="country">
+        {{ country }}
+      </option>
+    </select>
+    <div
+      *ngIf="
+        userForm.get('country1')?.invalid &&
+        userForm.get('country1')?.touched
+      "
+      class="text-danger"
+    >
+      Country1 is required.
+    </div>
+  </div>
+
+  <div class="form-group col-md-4 p-3">
+    <label for="state1">State</label>
+    <select
+      formControlName="state1"
+      class="form-control"
+      id="state1"
+      required
+    >
+      <option value="">Select</option>
+      <option *ngFor="let state of states" [value]="state">
+        {{ state }}
+      </option>
+    </select>
+    <div
+      *ngIf="
+        userForm.get('state1')?.invalid && userForm.get('state1')?.touched
+      "
+      class="text-danger"
+    >
+      State1 is required.
+    </div>
+  </div>
+
+  <div class="form-group col-md-4 p-3">
+    <label for="city1">City</label>
+    <select
+      formControlName="city1"
+      class="form-control"
+      id="city1"
+      required
+    >
+      <option value="">Select</option>
+      <option *ngFor="let city of cities" [value]="city">
+        {{ city }}
+      </option>
+    </select>
+    <div
+      *ngIf="
+        userForm.get('city1')?.invalid && userForm.get('city1')?.touched
+      "
+      class="text-danger"
+    >
+      City1 is required.
+    </div>
+  </div>
+
+  <div class="form-group col-md-4 p-3">
+    <label for="address1">Address</label>
+    <input
+      type="text"
+      formControlName="address1"
+      class="form-control"
+      id="address1"
+      required
+      (keypress)="onlysymbolvalidate($event)"
+    />
+    <div
+      *ngIf="
+        userForm.get('address1')?.invalid &&
+        userForm.get('address1')?.touched
+      "
+      class="text-danger"
+    >
+      Address1 is required.
+    </div>
+  </div>
+
+  <div class="form-group col-md-4 p-3">
+    <label for="zipcode1">Zip Code</label>
+    <input
+      type="text"
+      formControlName="zipcode1"
+      class="form-control"
+      id="zipcode1"
+      required
+      (keypress)="onlysymbolvalidate($event)"
+    />
+    <div
+      *ngIf="
+        userForm.get('zipcode1')?.invalid &&
+        userForm.get('zipcode1')?.touched
+      "
+      class="text-danger"
+    >
+      Zip Code1 is required.
+    </div>
+  </div>
+</div>
+  
+    <div class="row">
+      <div class="form-group form-check col">
+        <input
+          type="checkbox"
+          formControlName="inactive"
+          class="form-check-input"
+          id="inactive"
+        />
+        <label class="form-check-label" for="inactive">Inactive</label>
+      </div>
+      <div class="col-4 button-container">
+        <button
+          type="submit"
+          class="btn btn-primary savebutton"
+          
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
