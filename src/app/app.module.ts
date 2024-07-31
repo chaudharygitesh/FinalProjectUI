@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { userRoutingModule } from './user/user-routing.module';
 import { UserModule } from './user/user.module';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
    FormsModule,
    RouterLink,
    RouterLinkActive,
-   HttpClientModule
+   HttpClientModule,
+   NgxPaginationModule,
+   BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

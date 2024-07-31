@@ -90,6 +90,7 @@ header{
     background-color: #fde186;
     border-radius: 6%;
     margin: 1%;
+    position: relative;
 
 }
 .text-wrapper{

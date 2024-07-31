@@ -15,10 +15,13 @@ export class UserService {
     console.log(user);
     return this.httpClient.post<any>("https://localhost:7294/api/Register/CheckUserCred/",user)
   }
-  GetUserDetail(){
-    return this.httpClient.get("https://localhost:7294/api/Register")
-  }
   PostUserData(userData: UserDTO): Observable<any> {
     return this.httpClient.post<any>("https://localhost:7294/api/Register", userData);
+  }
+  GetUserData(){
+    return this.httpClient.get("https://localhost:7294/api/Register")
+  }
+  UpdateIsActive(id:any){
+    return this.httpClient.get<any>('https://localhost:7294/api/Register/update/'+id)
   }
 }

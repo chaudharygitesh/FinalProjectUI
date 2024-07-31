@@ -7,7 +7,8 @@ import { EmailCheckComponent } from './email-check/email-check.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatIconModule } from '@angular/material/icon'
 
 
 @NgModule({
@@ -23,7 +24,9 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     ReactiveFormsModule,
     RouterLink,
-    RouterLinkActive
+    RouterLinkActive,
+    NgxPaginationModule,
+    MatIconModule
   ]
 })
 export class UserModule { }
