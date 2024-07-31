@@ -19,6 +19,7 @@ export class RegisterComponent {
 
   constructor(private router :Router , private userservice:UserService) {
     this.userForm = new FormGroup({
+      Image:new FormControl(''),
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
       middleName: new FormControl(''),
@@ -84,6 +85,7 @@ dashboard(){
     } 
 
       const userData: UserDTO = {
+        Image:this.userForm.value.Image,
         firstName: this.userForm.value.firstName,
         lastName: this.userForm.value.lastName,
         middleName: this.userForm.value.middleName,

@@ -1,5 +1,6 @@
 
 export interface UserDTO {
+    Image:string;
     firstName: string;
     lastName: string;
     middleName?: string;

@@ -9,7 +9,6 @@
 
       <ul class="sidebar-nav">
         <li
-          routerLink="/user-management/dashboard"
           class="sidebar-item active mb-4"
         >
           <span class="sidebar-link">
@@ -89,24 +88,24 @@
 </div>
 <div>
   <div class="container1 col-9 shadow-box">
-    <h4 style="margin-left: 2%; padding: 1%">User Detail</h4>
+    <h4 style="margin-left: 2%;">User Detail</h4>
     <br style="background-color: black" />
-    <div class="row shadow-box1">
-      <div class="col-md-4 position-relative">
-        <img class="up-photo" src="../../../assets/uploadphoto.png" alt="abc" />
-      </div>
-      <div class="pt-4 position-absolute">
-        <strong><p style="margin-left: 10%">Upload Image Here</p></strong>
-      </div>
-      <div class="position-absolute pt-5">
-        <img
-          style="margin-left: 10%"
-          src="../../../assets/Frame 12.png"
-          alt=""
-        />
-      </div>
-    </div>
+
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row shadow-box1">
+        <div class="col-md-2 position-relative">
+          <img class="up-photo" src="../../../assets/uploadphoto.png" alt="abc" />
+        </div>
+        <div class=" position-absolute">
+          <strong><p style="margin-left: 10%">Upload Image Here</p></strong>
+        </div>
+        <div class="position-absolute browsewrapper ">
+          <label for="upload" class="uploadimg"></label>
+          <input  size="1"
+          formControlName="Image" type="file" accept=".png .svg .jpeg .jpg" class="btn btn-info upload-url" id="upload"  >
+     
+        </div>
+      </div>
       <div class="row">
         <div class="form-group col-md-4 p-3">
           <label for="firstName">First Name</label>

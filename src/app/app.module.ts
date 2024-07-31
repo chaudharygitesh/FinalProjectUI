@@ -11,10 +11,12 @@ import { UserModule } from './user/user.module';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ChangePasswordComponent,
 
   ],
   imports: [

@@ -5,6 +5,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { EmailCheckComponent } from './email-check/email-check.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path : 'Forget' ,component:ForgotPasswordComponent},
   {path:'EmailCheck',component:EmailCheckComponent},
   {path:'Register',component:RegisterComponent},
-  {path:'dashboard',component:DashboardComponent}
+  {path:'dashboard',component:DashboardComponent},
+  {path : '',component:ChangePasswordComponent}
 ];
 
 @NgModule({
